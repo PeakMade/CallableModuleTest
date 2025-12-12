@@ -1,0 +1,11 @@
+.git*
+.vscode
+.venv
+__pycache__
+*.pyc
+*.pyo
+local.settings.json
+test_ui/
+local_test_app.py
+templates/
+.gitignore
