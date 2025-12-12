@@ -10,7 +10,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     lookup_map = {
         1: "Cat",
         2: "Dog",
-        3: "Unicorn"
+        3: "Unicorn",
+        4: "Dragon"
     }
     
     # Get the 'value' parameter from query string
