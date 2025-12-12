@@ -6,12 +6,12 @@ import azure.functions as func
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
     
-    # Hardcoded lookup dictionary
+    # Hardcoded lookup dictionary - each value is [animal_name, type]
     lookup_map = {
-        1: "Cat",
-        2: "Dog",
-        3: "Unicorn",
-        4: "Dragon"
+        1: ["Cat", "Real"],
+        2: ["Dog", "Real"],
+        3: ["Unicorn", "Imaginary"],
+        4: ["Dragon", "Imaginary"]
     }
     
     # Get the 'value' parameter from query string
@@ -36,9 +36,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     
     # Look up the value in the dictionary
     if input_value in lookup_map:
-        result = lookup_map[input_value]
+        animal_name, animal_type = lookup_map[input_value]
         return func.HttpResponse(
-            json.dumps({"result": result}),
+            json.dumps({"animal": animal_name, "type": animal_type}),
             mimetype="application/json",
             status_code=200
         )
